@@ -3,42 +3,100 @@
 
 <head>
 
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
 
- <title>Agregar</title>
+  <title>Agregar - Sincronización</title>
 
- <script type="module" src="js/configura.js"></script>
- <script type="module" src="lib/js/muestraError.js"></script>
- <script type="module" src="js/bd/pasatiempoAgrega.js"></script>
+  <script src="js/registraServiceWorker.js"></script>
+
+  <meta name="viewport" content="width=device-width">
+  <meta name="theme-color" content="#fffbfe">
+  <link rel="icon" sizes="48x48" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
+  <script src="ungap/custom-elements.js"></script>
+
+  <script type="module" src="js/configura.js"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/transicion_pestanas.css">
+
+  <link rel="stylesheet" href="css/dark-hc.css">
+  <link rel="stylesheet" href="css/dark-mc.css">
+  <link rel="stylesheet" href="css/dark.css">
+  <link rel="stylesheet" href="css/light-hc.css">
+  <link rel="stylesheet" href="css/light-mc.css">
+  <link rel="stylesheet" href="css/light.css">
+
+  <script type="module" src="js/configura.js"></script>
+  <script type="module" src="lib/js/muestraError.js"></script>
+  <script type="module" src="js/bd/alumnoAgrega.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
 
 </head>
 
 <body>
 
- <form id="forma" onsubmit="
-   event.preventDefault()
-   // Lee el nombre, quitándole los espacios al inicio y al final.
-   const PAS_NOMBRE = forma.nombre.value.trim()
-   const modelo = { PAS_NOMBRE }
-   pasatiempoAgrega(modelo)
+<form id="forma" onsubmit="
+  event.preventDefault();
+  const ALU_NOMBRE = forma.alumno.value.trim();
+  const ALU_ASIGNATURA = forma.materia.value.trim(); // ✅ Renombrado aquí
+  const ALU_TURNO = forma.turno.value.trim();
+  const modelo = { ALU_NOMBRE, ALU_ASIGNATURA, ALU_TURNO }; // ✅ Usado correctamente
+  alumnoAgrega(modelo)
     .then(json => location.href = 'index.html')
     .catch(muestraError)">
 
-  <h1>Agregar</h1>
 
-  <p><a href="index.html">Cancelar</a></p>
+    <md-top-app-bar>
+      <center>
+        <h1>Agregar</h1>
+      </center>
+    </md-top-app-bar>
+    
+    <main>
+      <p>
+        <button class="md-filled-button" type="submit">
+          <span class="material-symbols-outlined" style="vertical-align: middle;">add</span>
+          <span style="vertical-align: middle;">Agregar</span>
+        </button>
 
-  <p>
-   <label>
-    Nombre *
-    <input name="nombre">
-   </label>
-  </p>
-  <p>* Obligatorio</p>
-  <p><button type="submit">Agregar</button></p>
+        <button class="md-filled-button" type="button" onclick="location.href='index.html'">
+          <span class="material-symbols-outlined" style="vertical-align: middle;">cancel</span>
+          <span style="vertical-align: middle;">Cancelar</span>
+        </button>
 
- </form>
+      </p>
+
+      <p>
+      <p>Nombre del alumno</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Nombre del alumno*" name="alumno">
+        <span>Nombre del alumno *</span>
+        <small>Obligatorio</small>
+      </label>
+
+      <p>Materia</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Materia*" name="materia">
+        <span>Materia *</span>
+        <small>Obligatorio</small>
+      </label>
+
+      <p>Turno</p>
+      <label class="md-filled-text-field">
+        <input required placeholder="Turno*" name="turno">
+        <span>Turno *</span>
+        <small>Obligatorio</small>
+      </label>
+      </p>
+
+
+    </main>
+
+  </form>
+
+  <nav-drw></nav-drw>
 
 </body>
 

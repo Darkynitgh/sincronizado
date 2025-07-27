@@ -1,7 +1,7 @@
-export const ALMACEN_PASATIEMPO = "PASATIEMPO"
-export const PAS_ID = "PAS_ID"
+export const ALMACEN_ALUMNO = "ALUMNOS"
+export const ALU_ID = "ALU_ID"
 export const INDICE_NOMBRE = "INDICE_NOMBRE"
-export const PAS_NOMBRE = "PAS_NOMBRE"
+export const ALU_NOMBRE = "ALU_NOMBRE"
 const BD_NOMBRE = "sincronizacion"
 const BD_VERSION = 1
 
@@ -24,16 +24,16 @@ export const Bd = new Promise((resolve, reject) => {
   const bd = solicitud.result
 
   // Como hay cambio de versión, borra el almacén si es que existe.
-  if (bd.objectStoreNames.contains(ALMACEN_PASATIEMPO)) {
-   bd.deleteObjectStore(ALMACEN_PASATIEMPO)
+  if (bd.objectStoreNames.contains(ALMACEN_ALUMNO)) {
+   bd.deleteObjectStore(ALMACEN_ALUMNO)
   }
 
-  // Crea el almacén "PASATIEMPO" con el campo llave "PAS_ID".
-  const almacenPasatiempo =
-   bd.createObjectStore(ALMACEN_PASATIEMPO, { keyPath: PAS_ID })
+  // Crea el almacén "ALUMNOS" con el campo llave "ALU_ID".
+  const almacenAlumno =
+   bd.createObjectStore(ALMACEN_ALUMNO, { keyPath: ALU_ID })
 
-  // Crea un índice ordenado por el campo "PAS_NOMBRE" que no acepta duplicados.
-  almacenPasatiempo.createIndex(INDICE_NOMBRE, "PAS_NOMBRE")
+  // Crea un índice ordenado por el campo "ALU_NOMBRE" que no acepta duplicados.
+  almacenAlumno.createIndex(INDICE_NOMBRE, ALU_NOMBRE)
  }
 
 })

@@ -1,10 +1,10 @@
 import { enviaJson } from "../lib/js/enviaJson.js"
 import { exportaAHtml } from "../lib/js/exportaAHtml.js"
 import { muestraError } from "../lib/js/muestraError.js"
-import { pasatiempoConsultaTodos } from "./bd/pasatiempoConsultaTodos.js"
-import { pasatiemposReemplaza } from "./bd/pasatiemposReemplaza.js"
+import { alumnoConsultaTodos } from "./bd/alumnoConsultaTodos.js"
+import { alumnosReemplaza } from "./bd/alumnoReemplaza.js"
 import { esperaUnPocoYSincroniza } from "./esperaUnPocoYSincroniza.js"
-import { validaPasatiempos } from "./modelo/validaPasatiempos.js"
+import { validaAlumnos } from "./modelo/validaAlumnos.js"
 import { renderiza } from "./renderiza.js"
 
 /**
@@ -13,17 +13,16 @@ import { renderiza } from "./renderiza.js"
 export async function sincroniza(lista) {
  try {
   if (navigator.onLine) {
-   const todos = await pasatiempoConsultaTodos()
+   const todos = await alumnoConsultaTodos()
    const respuesta = await enviaJson("srv/sincroniza.php", todos)
-   const pasatiempos = validaPasatiempos(respuesta.body)
-   await pasatiemposReemplaza(pasatiempos)
-   renderiza(lista, pasatiempos)
+   const alumnos = validaAlumnos(respuesta.body)
+   await alumnosReemplaza(alumnos)
+   renderiza(lista, alumnos)
   }
  } catch (error) {
   muestraError(error)
  }
  esperaUnPocoYSincroniza(lista)
-
 }
 
 exportaAHtml(sincroniza)
