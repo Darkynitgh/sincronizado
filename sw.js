@@ -15,7 +15,7 @@
  * conoce como número menor y se cambia cuando se realizan
  * modificaciones menores.
  */
-const VERSION = "1.15"
+const VERSION = "1.02"
 
 /**
  * Nombre de la carpeta de caché.
@@ -48,18 +48,18 @@ const ARCHIVOS = [
   "js/renderiza.js",
   "js/sincroniza.js",
   "js/bd/Bd.js",
-  "js/bd/juegoAgrega.js",
-  "js/bd/juegoBusca.js",
-  "js/bd/juegoConsultaNoEliminados.js",
-  "js/bd/juegoConsultaTodos.js",
-  "js/bd/juegoElimina.js",
-  "js/bd/juegoModifica.js",
-  "js/bd/juegoReemplaza.js",
-  "js/modelo/VIDEOJUEGO.js",
+  "js/bd/alumnoAgrega.js",
+  "js/bd/alumnoBusca.js",
+  "js/bd/alumnoConsultaNoEliminados.js",
+  "js/bd/alumnoConsultaTodos.js",
+  "js/bd/alumnoElimina.js",
+  "js/bd/alumnoModifica.js",
+  "js/bd/alumnoReemplaza.js",
+  "js/modelo/ALUMNO.js",
   "js/modelo/validaId.js",
   "js/modelo/validaNombre.js",
-  "js/modelo/validajuego.js",
-  "js/modelo/validaJuegos.js",
+  "js/modelo/validaAlu.js",
+  "js/modelo/validaAlumnos.js",
   "lib/js/bdConsulta.js",
   "lib/js/bdEjecuta.js",
   "lib/js/consumeJson.js",

@@ -3,19 +3,19 @@ import { htmlentities } from "../lib/js/htmlentities.js"
 
 /**
  * @param {HTMLUListElement} lista
- * @param {import("./modelo/PASATIEMPO.js").PASATIEMPO[]} pasatiempos
+ * @param {import("./modelo/ALUMNO.js").ALUMNO[]} alumnos
  */
-export function renderiza(lista, pasatiempos) {
+export function renderiza(lista, alumnos) {
  let render = ""
- for (const modelo of pasatiempos) {
-  if (modelo.PAS_ID === undefined)
-   throw new Error(`Falta PAS_ID de ${modelo.PAS_NOMBRE}.`)
-  const nombre = htmlentities(modelo.PAS_NOMBRE)
-  const searchParams = new URLSearchParams([["id", modelo.PAS_ID]])
+ for (const alumno of alumnos) {
+  if (alumno.ALU_ID === undefined)
+   throw new Error(`Falta ALU_ID de ${alumno.ALU_NOMBRE}.`)
+  const nombre = htmlentities(alumno.ALU_NOMBRE)
+  const searchParams = new URLSearchParams([["id", alumno.ALU_ID]])
   const params = htmlentities(searchParams.toString())
-  render += /* html */
-   `<li>
-     <p><a href="modifica.html?${params}">${nombre}</a></p>
+  render += /* html */ `
+    <li>
+      <p><a href="modifica.html?${params}">${nombre}</a></p>
     </li>`
  }
  lista.innerHTML = render

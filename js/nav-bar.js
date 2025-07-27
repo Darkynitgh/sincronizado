@@ -7,19 +7,10 @@ export class NavBar extends HTMLElement {
 
     this.innerHTML = /* HTML */`
       <a ${resaltaSiEstasEn(["/index.html", "", "/"])} href="index.html">
-        <span class="material-symbols-outlined">public</span>
-        GPS
+        <span class="material-symbols-outlined">home</span>
+        Alumnos
       </a>
 
-      <a ${resaltaSiEstasEn(["/camara.html"])} href="camara.html">
-        <span class="material-symbols-outlined">photo_camera</span>
-        Cámara
-      </a>
-
-      <a ${resaltaSiEstasEn(["/archivos.html"])} href="archivos.html">
-        <span class="material-symbols-outlined">folder</span>
-        Archivos
-      </a>
 
       <a ${resaltaSiEstasEn(["/ayuda.html"])} href="ayuda.html">
         <span class="material-symbols-outlined">help</span>
