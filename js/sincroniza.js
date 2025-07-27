@@ -1,7 +1,7 @@
 import { enviaJson } from "../lib/js/enviaJson.js"
 import { exportaAHtml } from "../lib/js/exportaAHtml.js"
 import { muestraError } from "../lib/js/muestraError.js"
-import { alumnoConsultaTodos } from "./bd/AlumnoConsultaTodos.js"
+import { alumnoConsultaTodos } from "./bd/alumnoConsultaTodos.js"
 import { alumnosReemplaza } from "./bd/alumnoReemplaza.js"
 import { esperaUnPocoYSincroniza } from "./esperaUnPocoYSincroniza.js"
 import { validaAlumnos } from "./modelo/validaAlumnos.js"
