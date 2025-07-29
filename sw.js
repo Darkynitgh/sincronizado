@@ -70,6 +70,7 @@ const ARCHIVOS = [
   "lib/js/muestraError.js",
   "lib/js/muestraObjeto.js",
   "lib/js/ProblemDetails.js",
+  "lib/js/getAttribute.js",
   "css/dark-hc.css",
   "css/dark-mc.css",
   "css/dark.css",
