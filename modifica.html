@@ -88,7 +88,7 @@
 
       <button type="button" class="md-standard-icon-button" slot="action" title="Borrar" onclick="
         if (paramId !== null && confirm('Confirma la eliminación')) {
-          videojuegoElimina(paramId)
+          alumnoElimina(paramId)
             .then(() => location.href = 'index.html')
             .catch(muestraError);
         }
