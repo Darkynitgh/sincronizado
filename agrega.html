@@ -40,9 +40,9 @@
 <form id="forma" onsubmit="
   event.preventDefault();
   const ALU_NOMBRE = forma.alumno.value.trim();
-  const ALU_ASIGNATURA = forma.materia.value.trim(); // ✅ Renombrado aquí
+  const ALU_ASIGNATURA = forma.materia.value.trim();
   const ALU_TURNO = forma.turno.value.trim();
-  const modelo = { ALU_NOMBRE, ALU_ASIGNATURA, ALU_TURNO }; // ✅ Usado correctamente
+  const modelo = { ALU_NOMBRE, ALU_ASIGNATURA, ALU_TURNO }; 
   alumnoAgrega(modelo)
     .then(json => location.href = 'index.html')
     .catch(muestraError)">
@@ -56,16 +56,14 @@
     
     <main>
       <p>
-        <button class="md-filled-button" type="submit">
-          <span class="material-symbols-outlined" style="vertical-align: middle;">add</span>
-          <span style="vertical-align: middle;">Agregar</span>
-        </button>
+          <button type="button" class="md-standard-icon-button" slot="action" title="Cancelar"
+            onclick="location.href='index.html'">
+            <span class="material-symbols-outlined">cancel</span>
+          </button>
 
-        <button class="md-filled-button" type="button" onclick="location.href='index.html'">
-          <span class="material-symbols-outlined" style="vertical-align: middle;">cancel</span>
-          <span style="vertical-align: middle;">Cancelar</span>
-        </button>
-
+          <button type="submit" class="md-standard-icon-button" slot="action" title="Agregar" form="forma">
+            <span class="material-symbols-outlined">add</span>
+          </button>
       </p>
 
       <p>
@@ -76,10 +74,10 @@
         <small>Obligatorio</small>
       </label>
 
-      <p>Materia</p>
+      <p>Asignatura</p>
       <label class="md-filled-text-field">
         <input required placeholder="Materia*" name="materia">
-        <span>Materia *</span>
+        <span>Asignatura*</span>
         <small>Obligatorio</small>
       </label>
 
